@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import Pages from "vite-plugin-pages";
 import AutoImport from "unplugin-auto-import/vite";
 import Icons from "unplugin-icons/vite";
 import Unfonts from "unplugin-fonts/vite";
@@ -10,12 +9,6 @@ export default defineConfig({
   base: '/jsearch-react/',
   plugins: [
     react(),
-    Pages({
-      // dirs: [
-      //   { dir: 'src/pages', baseRoute: '/vite-react-js/' },
-      // ]
-    
-    }),
 
     AutoImport({
       // targets to transform

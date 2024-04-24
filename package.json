@@ -34,7 +34,6 @@
     "unplugin-auto-import": "^0.17.5",
     "unplugin-fonts": "^1.1.1",
     "unplugin-icons": "^0.18.5",
-    "vite": "^5.2.0",
-    "vite-plugin-pages": "^0.32.1"
+    "vite": "^5.2.0"
   }
 }
