@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+*{outline:1px solid red;}   
+
 
 :root {
   font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
-  font-synthesis: none;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
