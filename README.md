@@ -26,7 +26,7 @@ pnpm run dev #npm run dev
 ```
 ## Plugins Used
 
-- ### Vite Plugin Pages [Link to GitHub](https://github.com/hannoeru/vite-plugin-pages?tab=readme-ov-file#react)
+- ### AutoAnimate
 
 - ### Unplugin Auto Import [Link to GitHub](https://github.com/unplugin/unplugin-auto-import)
 

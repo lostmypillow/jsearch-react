@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-*{outline:1px solid red;}   
+@layer components {
+  .btn-primary {
+    @apply flex bg-black text-white rounded-full px-4 py-2 items-center justify-center h-11 w-fit;
+  }
+}
+
+*{outline: 1px solid red;}   
 
 
 :root {
@@ -12,8 +18,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
+}
+#root {
+  min-height: 100vh;
+  min-width: 100dvw;
+}
 a {
   text-decoration: none;
+}
+*:focus {
+  outline: none;
 }
