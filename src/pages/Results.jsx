@@ -95,7 +95,7 @@ export default function Results() {
   const type = searchParams.get('type')
   const results = useOutletContext()
   return (
-    <div className="flex flex-col mb-20 md:pt-16 w-svw px-4 py-2 gap-2">
+    <div className="flex flex-col pt-32 w-svw px-4 py-2 gap-2 border-2 border-black">
 
       <div className='font-bold text-3xl'>
         Results:
