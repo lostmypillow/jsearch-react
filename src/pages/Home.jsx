@@ -1,37 +1,51 @@
 import React from 'react'
 import { useContext, createContext, useState, useEffect } from 'react'
 import { useNavigate, Outlet } from 'react-router-dom'
-const ExpandedContext = createContext(true)
 const SearchContext = createContext("")
 
-function TopBar() {
+function NameBar() {
+  const { searchType, setSearchType } = useContext(SearchContext)
+
+  function toggleType(event) {
+    setSearchType(event.target.id.toString())
+  }
+
   return (
-   
+    <div className='flex flex-row items-center justify-between w-full'>
+
       <h1 className='flex h-11 items-center justify-center text-3xl font-bold'>
         JSearch
       </h1>
+
+      <div className='flex flex-row items-center justify-center gap-1 border-2 border-black rounded-full'>
+
+        <button id='movies' onClick={toggleType} className={searchType == "movies" ? "btn-primary" : "btn-notprimary"}>
+          Movies
+        </button>
+
+        <button id='google' onClick={toggleType} className={searchType == "google" ? "btn-primary" : "btn-notprimary"}>
+          Google
+        </button>
+
+      </div>
+    </div>
   )
 }
 
 
-function BottomBar() {
+function SearchBar() {
   const navigate = useNavigate()
-  const [searchType, setsearchType] = useState('movies')
+
   const [searchTerm, setsearchTerm] = useState('')
 
-  // function changeToMovies() {
-  //     setsearchType("movies")
-  // }
-  // function changeToGoogle() {
-  //     setsearchType("google")
-  // }
+
+  const { setResults } = useContext(SearchContext)
+
+  const { searchType } = useContext(SearchContext)
   function passSearchTerm(event) {
     setsearchTerm(event.target.value)
   }
-  const { setResults } = useContext(SearchContext)
-
-
-  const fetchAndNav = async () => {
+  async function fetchAndNav() {
     if (searchType == 'movies') {
       try {
         const response = await axios.get('https://www.omdbapi.com/?apikey=e9cb394' + '&s=' + searchTerm);
@@ -265,12 +279,16 @@ function BottomBar() {
 
   }
 
+  useEffect(() => {
+    setsearchTerm('');
+  }, [searchType])
+
 
 
   return (
-    <>
+
       <div className='flex flex-col md:flex-row items-center justify-center w-full gap-2'>
-  
+
         <div className='flex flex-row border-2 border-black rounded-full'>
 
           <input
@@ -281,41 +299,39 @@ function BottomBar() {
             placeholder={searchType == 'movies' ? 'Search movies' : 'Search google'}
             autoFocus />
 
-        <button onClick={fetchAndNav} className='btn-primary'>
-          search
-        </button>
+          <button onClick={fetchAndNav} className='btn-primary'>
+            search
+          </button>
         </div>
       </div>
 
-
-    </>
   )
 }
 
 
-function MobileBar() {
+function Bar() {
   return (
-    <div className={`flex flex-col md:flex-row items-center justify-center w-screen z-20 fixed top-0 left-0 h-32 p-4 rounded-xl border-2 border-black bg-white gap-2`} >
-      <TopBar />
+    <div className={`flex flex-col md:flex-row items-center justify-center w-screen z-20 fixed top-0 left-0 h-32 p-4 rounded-b-xl border-2 border-black bg-white gap-2`} >
 
-    <BottomBar />
+      <NameBar />
+      <SearchBar />
+
     </div>
   )
 }
 
 
 export default function Home() {
-
   const [results, setResults] = useState(null)
 
+  const [searchType, setSearchType] = useState('movies')
 
   return (
-    <>
-      <SearchContext.Provider value={{ setResults }}>
+      <SearchContext.Provider value={{ searchType, setSearchType, setResults }}>
+        <Bar />
         <Outlet context={results} />
-        <MobileBar />
+  
       </SearchContext.Provider>
-    </>
 
   )
 }
