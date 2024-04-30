@@ -268,7 +268,11 @@ function SearchBar() {
           ]
         }
 
+        setResults(mockg)
+        navigate("search?query=" + searchTerm.split(' ').join('_') + "&type=" + searchType)
 
+        console.log(mockg)
+        console.log(mockg.search_term)
         //  console.log(response)
 
       } catch (error) {
@@ -287,23 +291,23 @@ function SearchBar() {
 
   return (
 
-      <div className='flex flex-col md:flex-row items-center justify-center w-full gap-2'>
+    <div className='flex flex-col md:flex-row items-center justify-center w-full gap-2'>
 
-        <div className='flex flex-row border-2 border-black rounded-full'>
+      <div className='flex flex-row border-2 border-black rounded-full'>
 
-          <input
-            value={searchTerm}
-            onChange={passSearchTerm}
-            className='rounded-full px-4 py-2 w-[90%] '
-            type="text"
-            placeholder={searchType == 'movies' ? 'Search movies' : 'Search google'}
-            autoFocus />
+        <input
+          value={searchTerm}
+          onChange={passSearchTerm}
+          className='rounded-full px-4 py-2 w-[90%] '
+          type="text"
+          placeholder={searchType == 'movies' ? 'Search movies' : 'Search google'}
+          autoFocus />
 
-          <button onClick={fetchAndNav} className='btn-primary'>
-            search
-          </button>
-        </div>
+        <button onClick={fetchAndNav} className='btn-primary'>
+          search
+        </button>
       </div>
+    </div>
 
   )
 }
@@ -327,11 +331,11 @@ export default function Home() {
   const [searchType, setSearchType] = useState('movies')
 
   return (
-      <SearchContext.Provider value={{ searchType, setSearchType, setResults }}>
-        <Bar />
-        <Outlet context={results} />
-  
-      </SearchContext.Provider>
+    <SearchContext.Provider value={{ searchType, setSearchType, setResults }}>
+      <Bar />
+      <Outlet context={results} />
+
+    </SearchContext.Provider>
 
   )
 }

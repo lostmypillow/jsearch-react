@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
 import { useOutletContext } from 'react-router';
 import { useSearchParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function MovieCard({ movie }) {
   return (
@@ -28,65 +30,65 @@ function MovieCard({ movie }) {
   );
 }
 
-// function KnowledgeCard({knowledge_panel}) {
-//   return (
-//     <>
-//    <div
-//    className="flex flex-col items-start justify-center gap-2 border-2 border-black min-h-24  mx-4 my-8 p-4 rounded-3xl backdrop-blur-3xl grow">
-//    <h3 className="text-sm font-light">KNOWLEDGE PANEL</h3>
+function KnowledgeCard({ knowledge }) {
+  const [infoShown, setInfoShown] = useState(false)
+  function toggleShow() {
+    setInfoShown(!infoShown)
+  }
+  return (
+    <div className='flex flex-col items-start justify-center gap-4 border-2 border-black min-h-24  mx-4 my-8 px-4 py-8 rounded-2xl grow'>
+      <h3 className="text-sm font-light">KNOWLEDGE PANEL</h3>
 
-//    <div className="flex flex-row w-full items-center justify-between">
-//       <h1 className="text-2xl">
-//          { knowledge_panel.name }
-//       </h1>
-//       <img className="max-w-10"alt="image" />
-//    </div>
+      <div className="flex flex-row w-full items-center justify-between">
+        <h1 className="text-2xl">
+          {knowledge.name}
+        </h1>
+        {/*        <img className="max-w-10"alt="image" /> */}
+      </div>
 
-//    <h2 className="text-base font-light">
-//          { knowledge_panel.label }
-//       </h2>
-
-
-//    <div className="text-base">
-//       &emsp;{ knowledge_panel.description.text }
-//    </div>
-
-//    <div className="text-sm">
-//       Source:
-//       <Link to={knowledge_panel.description.url}>
-//          { knowledge_panel.description.site }
-//       </Link>
-//    </div>
-//    <br />
-//    <button>
-//       <div className=" flex flex-row" >
-
-//          Show More Info
-//       </div>
-//       <div className=" flex flex-row" >
-//          <MinusSVG />
-//          Show Less Info
-//       </div>
-//    </button>
-
-//    <div v-auto-animate>
-//       <div  className="flex flex-col gap-4">
-//          <div >
+      <h2 className="text-base font-light">
+        {knowledge.label}
+      </h2>
 
 
-//             <div className="font-bold"> { inf.title }:</div>
+      <div className="text-base">
+        {knowledge.description.text}
+      </div>
 
-//             <div >
-//                { label }
-//             </div>
-//          </div>
-//       </div>
+      <Link to={knowledge.description.url}>
+        Source: {knowledge.description.site}
+      </Link>
 
-//    </div>
-// </div>
-// </>
-//   )
-// }
+      <button className='btn-primary' onClick={toggleShow}>
+        <span>
+          Show More Info
+        </span>
+
+      </button>
+      {infoShown ?
+
+        <>
+          {knowledge.info.map((inf) => (
+            <>
+              <div className="font-bold"> {inf.title}:</div>
+
+              <div >
+                {inf.labels.map((info) => (
+                  <div>{info}</div>
+                ))}
+              </div>
+
+            </>
+          ))} </> : null}
+
+    </div>
+  )
+}
+
+
+function GoogleResultsCard({resultslst}) {
+
+}
 
 {/* <h2 v-if="results != ''" class="mx-4 my-8 text-2xl font-bold">Results:</h2>
 <div class="flex flex-col border-2 border-black rounded-3xl  mx-4 my-8 px-4 py-8 gap-4"  v-for="r in results">
@@ -100,7 +102,20 @@ function MovieCard({ movie }) {
 
 </div> */}
 
+function GoogleCard({ googleresults }) {
+  const knowledge = googleresults.knowledge_panel
+  const results = googleresults.results
+  return (
+    <>
+      <KnowledgeCard knowledge={knowledge} />
+      {/* <GoogleResultsCard resultslst={results} /> */}
 
+    </>
+
+
+  )
+
+}
 
 export default function Results() {
   const [searchParams] = useSearchParams();
@@ -117,15 +132,15 @@ export default function Results() {
       <div className='flex flex-col md:flex-row md:flex-wrap gap-4 items-center justify-center w-full'>
         {/* <div>search query is {query}</div>
         <div>search type is {type}</div> */}
-     {type == 'movies' && results?.length > 0 ? 
-        (
-          results.map((movie) => (
+        {type == 'movies' && results?.length > 0 ?
+          (
+            results.map((movie) => (
 
-            <MovieCard key={movie.imdbID} movie={movie} />
-          ))
-        ) : (
-          <h1>Google</h1>
-        )} 
+              <MovieCard key={movie.imdbID} movie={movie} />
+            ))
+          ) : (
+            <GoogleCard googleresults={results} />
+          )}
 
 
       </div>
