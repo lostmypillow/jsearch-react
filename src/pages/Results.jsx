@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useOutletContext } from 'react-router';
-import { useSearchParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { useOutletContext, useSearchParams, Link } from 'react-router';
 
 function MovieCard({ movie }) {
   return (
@@ -13,12 +11,15 @@ function MovieCard({ movie }) {
         src={movie.Poster != "N/A" ? movie.Poster : "SearchIcon"}
         alt="poster"
       />
+
       <h3 className="text-sm font-light">
         {movie.Type.toUpperCase()}
       </h3>
 
       <div className="text-xl font-bold">
-        {movie.Title} <br className="md:hidden"></br>
+        {movie.Title}
+        <br className="md:hidden"></br>
+
         <div className="text-base font-semibold">
           ({movie.Year})
         </div>
@@ -36,14 +37,14 @@ function KnowledgeCard({ knowledge }) {
     setInfoShown(!infoShown)
   }
   return (
-    <div className='flex flex-col items-start justify-center gap-4 border-2 border-black min-h-24  mx-4 my-8 px-4 py-8 rounded-2xl grow'>
+    <div className='flex flex-col items-start justify-center gap-4 border-2 border-black min-h-24  my-8 px-4 py-8 rounded-2xl grow'>
       <h3 className="text-sm font-light">KNOWLEDGE PANEL</h3>
 
       <div className="flex flex-row w-full items-center justify-between">
         <h1 className="text-2xl">
           {knowledge.name}
         </h1>
-        {/*        <img className="max-w-10"alt="image" /> */}
+      <img alt="image" src={knowledge.image.url} width={knowledge.image.width} height={knowledge.image.height} /> 
       </div>
 
       <h2 className="text-base font-light">
@@ -86,29 +87,29 @@ function KnowledgeCard({ knowledge }) {
 }
 
 
-function GoogleResultsCard({resultslst}) {
+function GoogleResultsCard({ results }) {
+  return (
+    <>
+      {results.map((result) => (
+        <div className="flex flex-col border-2 border-black rounded-3xl  px-4 py-8 gap-4 w-full" > <Link className="flex text-2xl text-blue-600 " to="result.url" key={result.position}
+        >
+          {result.title}
 
+        </Link>
+          <div className="flex">{result.description}</div></div>
+      ))}
+    </>
+  )
 }
 
-{/* <h2 v-if="results != ''" class="mx-4 my-8 text-2xl font-bold">Results:</h2>
-<div class="flex flex-col border-2 border-black rounded-3xl  mx-4 my-8 px-4 py-8 gap-4"  v-for="r in results">
-
-    <NuxtLink class="flex text-2xl text-blue-600 " :to="r.url"
-        :key="r.position">
-        {{ r.title }}
-
-    </NuxtLink>
-    <div class="flex">{{ r.description }}</div>
-
-</div> */}
 
 function GoogleCard({ googleresults }) {
   const knowledge = googleresults.knowledge_panel
   const results = googleresults.results
   return (
     <>
-      <KnowledgeCard knowledge={knowledge} />
-      {/* <GoogleResultsCard resultslst={results} /> */}
+      {knowledge? <KnowledgeCard knowledge={knowledge} />:  null}
+      <GoogleResultsCard results={results} />
 
     </>
 

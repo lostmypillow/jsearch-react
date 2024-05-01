@@ -135,7 +135,7 @@ function SearchBar() {
         method: 'GET',
         url: 'https://google-search74.p.rapidapi.com/',
         params: {
-          query: 'Nike',
+          query: searchTerm,
           limit: '10',
           related_keywords: 'false'
         },
@@ -145,9 +145,9 @@ function SearchBar() {
         }
       };
       try {
-        // const response = await axios.request(options);
+         const response = await axios.request(options);
         // response.data
-        //  await setResults(response.data)
+          await setResults(response.data)
         const mockg = {
           "search_term": "Nike",
           "knowledge_panel": {
@@ -268,12 +268,12 @@ function SearchBar() {
           ]
         }
 
-        setResults(mockg)
+        // setResults(mockg)
         navigate("search?query=" + searchTerm.split(' ').join('_') + "&type=" + searchType)
 
-        console.log(mockg)
-        console.log(mockg.search_term)
-        //  console.log(response)
+        // console.log(mockg)
+        // console.log(mockg.search_term)
+          console.log(response)
 
       } catch (error) {
         console.log("Error")
