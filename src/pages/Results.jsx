@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useOutletContext, useSearchParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useOutletContext, useSearchParams, Link } from 'react-router-dom';
 
 function MovieCard({ movie }) {
   return (
