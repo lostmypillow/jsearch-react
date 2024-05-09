@@ -5,13 +5,13 @@ Status: Production Ready
 
 
 ## Tech Stack
-Vite with React(JavaScript), styled with **TailwindCSS**
+**Vite** with **React(JavaScript)**, styled with **TailwindCSS**
 
 
 ## Frontend Concepts Used
 - Consume publicly available APIs and display them with React components
 - Style website with TailwindCSS
-- Push static export ("index.html" instead of a Node file)
+- Push static export ("index.html" instead of a Node.js file) via GitHub Actions to GitHub Pages
 
 
 ## Recreate this project
