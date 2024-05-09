@@ -1,10 +1,22 @@
-# My Vite (React) Template
+# JSearch
+A frontend for OMDb API & a random Google API from RapidAPI
 
-## How should you/I use this template?
+Status: Production Ready
+
+
+## Tech Stack
+Vite with React(JavaScript), styled with **TailwindCSS**
+
+
+## Frontend Concepts Used
+
+
+
+## Recreate this project
 
 ### 0.5 Enable & Update PNPM
 ```bash
-corepack enable pnpm  && pnpm add -g pnpm #I recommend pnpm, but npm commands are provided
+corepack enable pnpm  && pnpm add -g pnpm #I highly recommend pnpm, but npm commands are provided, regardless
 ```
 
 ### 1. Install dependencies
@@ -24,26 +36,3 @@ pnpm exec eslint-config-prettier index.js test/index.js legacy/main.js ##npx esl
 ```bash
 pnpm run dev #npm run dev
 ```
-## Plugins Used
-
-- ### AutoAnimate
-
-- ### Unplugin Auto Import [Link to GitHub](https://github.com/unplugin/unplugin-auto-import)
-
-- ### Unplugin Icons [Link to GitHub](https://github.com/unplugin/unplugin-icons)
-
-- ### Unplugin Fonts [Link to GitHub](https://github.com/cssninjaStudio/unplugin-fonts)
-
-- ### Axios [Link to Site](https://axios-http.com/docs/intro)
-
-- ### ESLint Config Prettier [Link to GitHub](https://github.com/prettier/eslint-config-prettier)
-
-## VSCode Extensions
-
-- ### ES7+ React/Redux/React-Native snippets by dsznajder
-
-- ### Tailwind CSS IntelliSense
-
-- ### ESLint
-
-- ### Prettier
