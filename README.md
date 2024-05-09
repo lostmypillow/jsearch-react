@@ -9,7 +9,9 @@ Vite with React(JavaScript), styled with **TailwindCSS**
 
 
 ## Frontend Concepts Used
-
+- Consume publicly available APIs and display them with React components
+- Style website with TailwindCSS
+- Push static export ("index.html" instead of a Node file)
 
 
 ## Recreate this project
