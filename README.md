@@ -14,6 +14,10 @@ Status: Production Ready
 - Push static export ("index.html" instead of a Node.js file) via GitHub Actions to GitHub Pages
 
 
+## Flaws
+- My API key is exposed
+
+
 ## Recreate this project
 
 ### 0.5 Enable & Update PNPM
