@@ -1,49 +1,21 @@
-# My Vite (React) Template
+# JSearch React
+Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
 
-## How should you/I use this template?
+**Demo:** http://lostmypillow.github.io/jsearch-react/
 
-### 0.5 Enable & Update PNPM
-```bash
-corepack enable pnpm  && pnpm add -g pnpm #I recommend pnpm, but npm commands are provided
-```
 
-### 1. Install dependencies
-```bash
-pnpm i #npm install
-```
-### 2. Initialize TailwindCSS
-```bash
-pnpm exec tailwindcss init -p #npx tailwindcss init -p
-```
-### 3. Check conflicting ESLint Rules
-```bash
-pnpm exec eslint-config-prettier index.js test/index.js legacy/main.js ##npx eslint-config-prettier index.js test/index.js legacy/main.js 
-```
 
-### 4. Run dev server
-```bash
-pnpm run dev #npm run dev
-```
-## Plugins Used
 
-- ### AutoAnimate
+## How I Made This
 
-- ### Unplugin Auto Import [Link to GitHub](https://github.com/unplugin/unplugin-auto-import)
+**Tech used:** React, Vite, React Router 6, TailwindCSS
 
-- ### Unplugin Icons [Link to GitHub](https://github.com/unplugin/unplugin-icons)
 
-- ### Unplugin Fonts [Link to GitHub](https://github.com/cssninjaStudio/unplugin-fonts)
 
-- ### Axios [Link to Site](https://axios-http.com/docs/intro)
+## Optimizations
+*(optional)*
 
-- ### ESLint Config Prettier [Link to GitHub](https://github.com/prettier/eslint-config-prettier)
 
-## VSCode Extensions
 
-- ### ES7+ React/Redux/React-Native snippets by dsznajder
+## Lessons Learned:
 
-- ### Tailwind CSS IntelliSense
-
-- ### ESLint
-
-- ### Prettier
