@@ -120,7 +120,7 @@ function SearchBar() {
 function Bar() {
   return (
     <div
-      className={`fixed left-0 top-0 z-20 flex h-fit w-screen flex-col items-center justify-center gap-2 rounded-b-xl border-2 border-black bg-white p-4 md:flex-row md:justify-start`}
+      className={`fixed left-0 top-0 z-20 flex h-48 w-screen flex-col items-center justify-center gap-2 rounded-b-xl border-2 border-black bg-white p-4 md:flex-row md:justify-start md:h-fit`}
     >
       <NameBar />
       <SearchBar />
