@@ -8,6 +8,8 @@ Status: Production Ready
 
 ## Screenshots
 
+![mobile_movies](https://github.com/lostmypillow/jsearch/assets/47119111/ddcd7226-7d24-46f9-9aac-ad1631fb3151)
+![mobile_google](https://github.com/lostmypillow/jsearch/assets/47119111/b77cc7ac-e3a0-4b1b-89bf-58f35fa76016)
 
 
 ## Tech Stack
