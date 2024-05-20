@@ -76,8 +76,8 @@ function GoogleResultsCard({ results }) {
   return (
     <>
       {results.map((result) => (
-        <div className="flex w-full flex-col gap-4 rounded-3xl  border-2 border-black px-4 py-8">
-          {" "}
+        <div className="flex w-full flex-col gap-4 rounded-3xl  border-2 border-black px-4 py-8" key={result.position}>
+
           <Link
             className="flex text-2xl text-blue-600 "
             to="result.url"

@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
 ],
 {
-  basename:"/jsearch-react"
+  basename:"/jsearch"
 }
 );
 

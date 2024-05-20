@@ -3,17 +3,13 @@ import { useContext, createContext, useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 const SearchContext = createContext("");
 
-function NameBar() {
+function Title() {
 
 
   return (
-    <div className="flex w-full flex-row items-center justify-between">
-      <h1 className="flex h-11 items-center justify-center text-3xl font-bold">
+ <h1 className="flex w-full flex-row items-center justify-between  h-11  text-3xl font-bold">
         JSearch
       </h1>
-
-      
-    </div>
   );
 }
 
@@ -61,6 +57,7 @@ function SearchBar() {
       };
       try {
         const response = await axios.request(options);
+        console.log(response)
         await setResults(response.data);
         navigate(
           "search?query=" +
@@ -97,11 +94,11 @@ function SearchBar() {
           Google
         </button>
       </div>
-      <div className="flex flex-row rounded-full border-2 border-black">
+      <div className="flex flex-row rounded-full border-2 border-black  bg-slate-100">
         <input
           value={searchTerm}
           onChange={passSearchTerm}
-          className="w-[90%] rounded-full px-4 py-2 "
+          className="w-[90%] rounded-full px-4 py-2 bg-slate-100"
           type="text"
           placeholder={
             searchType == "movies" ? "Search movies" : "Search google"
@@ -117,12 +114,12 @@ function SearchBar() {
   );
 }
 
-function Bar() {
+function Nav() {
   return (
     <div
       className={`fixed left-0 top-0 z-20 flex h-48 w-screen flex-col items-center justify-center gap-2 rounded-b-xl border-2 border-black bg-white p-4 md:flex-row md:justify-start md:h-fit`}
     >
-      <NameBar />
+      <Title />
       <SearchBar />
     </div>
   );
@@ -135,7 +132,7 @@ export default function Home() {
 
   return (
     <SearchContext.Provider value={{ searchType, setSearchType, setResults }}>
-      <Bar />
+      <Nav />
       <Outlet context={results} />
     </SearchContext.Provider>
   );
