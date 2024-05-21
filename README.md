@@ -1,20 +1,19 @@
 # JSearch
 A frontend for OMDb API & a random Google API from RapidAPI
 
-Status: Production Ready
-
-[Click for Demo](https://lostmypillow.github.io/jsearch-react)
-
-
-## Screenshots
-
-![mobile_movies](https://github.com/lostmypillow/jsearch/assets/47119111/ddcd7226-7d24-46f9-9aac-ad1631fb3151)
-![mobile_google](https://github.com/lostmypillow/jsearch/assets/47119111/b77cc7ac-e3a0-4b1b-89bf-58f35fa76016)
+[Demo](https://lostmypillow.github.io/jsearch-react)
 
 
 ## Tech Stack
 **Vite** with **React(JavaScript)**, styled with **TailwindCSS**
 
+
+## Recreate this Project
+
+```bash
+corepack enable && pnpm install
+pnpm run dev
+```
 
 ## Frontend Concepts Used
 - Consume publicly available APIs and display them with React components
@@ -22,8 +21,21 @@ Status: Production Ready
 - Push static export ("index.html" instead of a Node.js file) via GitHub Actions to GitHub Pages
 
 
-## Flaws
-- My API key is exposed
+## Why not dropdowns for "Movies/Google" selection?
+I'ma  firm believer of presenting the user all topions without having them to spend time digging through menus (hamburger menus, ugh!) jsut to navigate between different search options, so I designed a "toggle" where it's clear A. which search type it is now, and B. what other options they have.
 
 
-## Recreate this project
+## Where are all the fancy animations?
+I'm also a firm believer in performant websites. Time spent on slow, costly and unnecessary animations is time not spent on navigating the website, which is the important thing here. User don't go to a website to admire the fancy animations, they're there to achieve a goal. And the faster a website helps them achieve that goal, the more appreciative they will be. The best tool is the one that gets things done and get out of the way afterwards.
+
+
+## Future for this Project
+
+### Django Backend
+Right now I'm consuming the OMDb API and RapidAPI via the frontend, the API key is exposed in the inspector window, I'm planning to move this to a Django/Django Ninja backend.
+
+### Mobile App
+Speaking of backend, another reason for moving API consumption to the backend is for the benefit of the future mobile app version of JSearch
+
+### Dark Mode
+Self explanatory.
