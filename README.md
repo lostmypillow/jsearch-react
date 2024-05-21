@@ -15,6 +15,11 @@ corepack enable && pnpm install
 pnpm run dev
 ```
 
+## Why PNPM?
+
+It's faster than NPM
+
+
 ## Frontend Concepts Used
 - Consume publicly available APIs and display them with React components
 - Style website with TailwindCSS
