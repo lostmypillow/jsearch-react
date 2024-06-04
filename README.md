@@ -27,7 +27,7 @@ It's faster than NPM
 
 
 ## Why not dropdowns for "Movies/Google" selection?
-I'm a  firm believer of presenting the user all topions without having them to spend time digging through menus (hamburger menus, ugh!) jsut to navigate between different search options, so I designed a "toggle" where it's clear A. which search type it is now, and B. what other options they have.
+I'm a  firm believer of presenting the user all topions without having them to spend time digging through menus (hamburger menus, ugh!) just to navigate between different search options, so I designed a "toggle" where it's clear A. which search type it is now, and B. what other options they have.
 
 
 ## Where are all the fancy animations?
